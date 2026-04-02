@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaled Hassan - Entrevista</title>
+    <link rel="stylesheet" href="../estilos.css">
+    <style>
+        .pagina-artista { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .redes-sociais { display: flex; gap: 15px; margin: 20px 0; flex-wrap: wrap; }
+        .redes-sociais a { padding: 10px 20px; background: #333; color: white; text-decoration: none; border-radius: 8px; }
+        audio { width: 100%; margin: 20px 0; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; margin: 20px 0; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .tag-categoria-site { display: inline-block; padding: 6px 14px; border-radius: 20px; color: white; font-size: 14px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+<div class="header-fixo">
+    <img src="../imagens/logo-cabecalho.png" alt="Logo" class="cabecalho-img" style="width: auto; height: 80px; margin: 0 auto; display: block;">
+</div>
+<div class="header-placeholder"></div>
+<main>
+    <div class="pagina-artista">
+        <a href="../index.html" class="btn-voltar">← Voltar ao catálogo</a>
+        
+        <span class="tag-categoria-site" style="background: #f39c12">DANÇA</span>
+        <h1>🎙️ Kaled Hassan</h1>
+        
+        <h2>🎧 Entrevista em áudio</h2>
+        <audio controls>
+            <source src="../audios/kaled-hassan.mp3" type="audio/mpeg">
+            Seu navegador não suporta áudio.
+        </audio>
+        
+        <h2>📱 Redes Sociais</h2>
+        <div class="redes-sociais">
+            <a href="#">Instagram</a>
+            <a href="#">Site oficial</a>
+        </div>
+        
+        <h2>📹 Entrevista em vídeo</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/PLACEHOLDER" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p><small>Links e vídeos serão adicionados em breve.</small></p>
+    </div>
+</main>
+<script>
+    window.addEventListener('load', () => {
+        const headerAltura = document.querySelector('.header-fixo').offsetHeight;
+        document.querySelector('.header-placeholder').style.height = headerAltura + 'px';
+    });
+    window.addEventListener('resize', () => {
+        const headerAltura = document.querySelector('.header-fixo').offsetHeight;
+        document.querySelector('.header-placeholder').style.height = headerAltura + 'px';
+    });
+</script>
+</body>
+</html>
