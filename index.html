@@ -5,29 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Catálogo de Entrevistas - Artistas</title>
     <link rel="stylesheet" href="estilos.css">
-    <style>
-        /* Ajuste adicional para o header fixo */
-        body {
-            padding-top: 0;
-        }
-        .header-placeholder {
-            height: auto;
-        }
-    </style>
 </head>
 <body>
 
 <!-- Header fixo com imagem -->
 <div class="header-fixo">
     <img src="imagens/logo-cabecalho.png" alt="Logo" class="cabecalho-img" id="cabecalho-img">
-    <!-- Se for WebP, mude a extensão acima -->
 </div>
 
-<!-- Espaçador para compensar o header fixo (será ajustado via JS) -->
+<!-- Espaçador para compensar o header fixo -->
 <div class="header-placeholder"></div>
 
 <main>
-    <!-- Botão voltar (aparece em subpáginas, será controlado por JS) -->
+    <!-- Botão voltar -->
     <div id="btn-voltar-container" style="display: none;">
         <button class="btn-voltar" onclick="voltarParaHome()">← Voltar ao início</button>
     </div>
@@ -126,7 +116,6 @@
     
     // Renderizar Accordion (sanfonado) por categoria
     function renderizarAccordion() {
-        // Agrupar artistas por categoria
         const categorias = {};
         artistas.forEach(artista => {
             let cat = artista.categoria;
@@ -135,7 +124,6 @@
             categorias[cat].push(artista);
         });
         
-        // Ordem alfabética das categorias
         const categoriasOrdenadas = Object.keys(categorias).sort();
         
         let html = '';
@@ -146,9 +134,14 @@
             let listaArtistas = '';
             artistasOrdenados.forEach(artista => {
                 const slug = slugify(artista.nome);
+                const ehInMemorian = artista.categoria.includes('IN MEMORIAN');
+                const classeMemorian = ehInMemorian ? 'in-memorian' : '';
+                const iconeMemorian = ehInMemorian ? '🕊️ ' : '🎙️ ';
+                const nomeExibido = ehInMemorian ? artista.nome.replace(' (IN MEMORIAN)', '') : artista.nome;
+                
                 listaArtistas += `
-                    <a href="artistas/${slug}.html" class="link-artista" style="border-left-color: ${cor}">
-                        🎙️ ${artista.nome}
+                    <a href="artistas/${slug}.html" class="link-artista ${classeMemorian}" style="border-left-color: ${cor}">
+                        ${iconeMemorian} ${nomeExibido} ${ehInMemorian ? '<span style="font-size: 12px; background: #c0392b; color: white; padding: 2px 8px; border-radius: 20px; margin-left: 8px;">IN MEMORIAN</span>' : ''}
                     </a>
                 `;
             });
@@ -156,7 +149,7 @@
             html += `
                 <div class="accordion-item">
                     <button class="accordion-header" style="background: ${cor}" onclick="toggleAccordion(this)">
-                        ${categoria}
+                        ${categoria} (${artistasOrdenados.length})
                     </button>
                     <div class="accordion-content">
                         <div class="lista-artistas-accordion">
@@ -187,12 +180,12 @@
             
             const cor = coresCategorias[categoriaBase] || '#95a5a6';
             const slug = slugify(artista.nome);
-            const nomeExibido = isMemorian ? artista.nome + ' †' : artista.nome;
+            const nomeExibido = isMemorian ? artista.nome.replace(' (IN MEMORIAN)', '') + ' †' : artista.nome;
             
             html += `
-                <a href="artistas/${slug}.html" class="item-artista">
-                    <span class="nome-artista">${nomeExibido}</span>
-                    <span class="tag-categoria" style="background: ${cor}">${categoriaBase}</span>
+                <a href="artistas/${slug}.html" class="item-artista" ${isMemorian ? 'style="background: #fff3f3; border-left: 4px solid #c0392b;"' : ''}>
+                    <span class="nome-artista">${isMemorian ? '🕊️ ' : '🎙️ '} ${nomeExibido}</span>
+                    <span class="tag-categoria" style="background: ${cor}">${categoriaBase} ${isMemorian ? '• IN MEMORIAN' : ''}</span>
                 </a>
             `;
         });
@@ -201,22 +194,20 @@
         document.getElementById('lista-nomes-container').innerHTML = html;
     }
     
-    // Função para renderizar a equipe (com placeholders)
+    // Renderizar equipe com grid otimizado
     function renderizarEquipe() {
-        // Lista temporária da equipe (você substituirá pelos dados reais)
         const equipe = [
             { nome: "Nome do Coordenador", funcao: "Coordenação Geral", descricao: "Descrição do trabalho e contribuição.", icone: "🎯" },
             { nome: "Nome do Pesquisador 1", funcao: "Pesquisa e Curadoria", descricao: "Responsável pela seleção e organização dos artistas.", icone: "📚" },
             { nome: "Nome do Pesquisador 2", funcao: "Pesquisa e Curadoria", descricao: "Responsável pela seleção e organização dos artistas.", icone: "🔍" },
             { nome: "Nome do Designer", funcao: "Design Gráfico", descricao: "Criação visual do catálogo e materiais.", icone: "🎨" },
-            { nome: "Nome do Desenvolvedor", funcao: "Diagramação e desenvolvimento Web", descricao: "Diagramação do catálogo, implementação técnica do site e manutenção.", icone: "💻" },
+            { nome: "Nome do Desenvolvedor", funcao: "Desenvolvimento Web", descricao: "Implementação técnica do site e manutenção.", icone: "💻" },
             { nome: "Nome do Produtor", funcao: "Produção Executiva", descricao: "Gestão do projeto e parcerias.", icone: "🎬" },
             { nome: "Nome do Entrevistador", funcao: "Entrevistas", descricao: "Condução das entrevistas com os artistas.", icone: "🎙️" },
             { nome: "Nome do Fotógrafo", funcao: "Registro Fotográfico", descricao: "Registro das imagens e making of.", icone: "📸" }
         ];
         
-        let html = '<div class="equipe-grid">';
-        
+        let html = '';
         equipe.forEach(membro => {
             html += `
                 <div class="membro-card">
@@ -232,11 +223,10 @@
             `;
         });
         
-        html += '</div>';
         document.getElementById('equipe-container').innerHTML = html;
     }
     
-    // Abrir accordion específico via URL (para navegação direta)
+    // Abrir accordion específico via URL
     function abrirCategoriaNaURL() {
         const params = new URLSearchParams(window.location.search);
         const categoria = params.get('categoria');
@@ -246,8 +236,12 @@
                 const items = document.querySelectorAll('.accordion-item');
                 for (let item of items) {
                     const header = item.querySelector('.accordion-header');
-                    if (header.textContent === decodeURIComponent(categoria)) {
+                    if (header.textContent.startsWith(decodeURIComponent(categoria))) {
                         item.classList.add('active');
+                        const content = item.querySelector('.accordion-content');
+                        if (content) {
+                            content.style.maxHeight = content.scrollHeight + 'px';
+                        }
                         header.scrollIntoView({ behavior: 'smooth' });
                         break;
                     }
@@ -256,7 +250,6 @@
         }
     }
     
-    // Executar ao carregar
     window.addEventListener('load', () => {
         ajustarHeaderPlaceholder();
         abrirCategoriaNaURL();
