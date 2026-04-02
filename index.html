@@ -19,7 +19,7 @@
 
 <!-- Header fixo com imagem -->
 <div class="header-fixo">
-    <img src="imagens/cabecalho.png" alt="Cabeçalho" class="cabecalho-img" id="cabecalho-img">
+    <img src="imagens/logo-cabecalho.png" alt="Logo" class="cabecalho-img" id="cabecalho-img">
     <!-- Se for WebP, mude a extensão acima -->
 </div>
 
@@ -53,6 +53,15 @@
                     <p>Lista completa em ordem alfabética</p>
                 </div>
             </div>
+            <div class="card-principal" onclick="mostrarEquipe()">
+                <div class="card-imagem" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-size: 64px;">👥</span>
+                </div>
+                <div class="card-conteudo">
+                    <h2>Equipe do Projeto</h2>
+                    <p>Conheça quem tornou este catálogo possível</p>
+                </div>
+            </div>
         </div>
         <div class="texto-busca">
             ✨ Procure artistas por categoria ou nome ✨
@@ -67,6 +76,12 @@
     <!-- SEÇÃO 3: Página de Nomes (Lista alfabética) -->
     <div id="secao-nomes" class="secao">
         <div id="lista-nomes-container"></div>
+    </div>
+
+    <!-- SEÇÃO 4: Página da Equipe -->
+    <div id="secao-equipe" class="secao">
+        <h2 style="text-align: center; margin-bottom: 30px;">🌟 Nossa Equipe</h2>
+        <div id="equipe-container" class="equipe-grid"></div>
     </div>
 </main>
 
@@ -96,6 +111,13 @@
         renderizarListaNomes();
     }
     
+    function mostrarEquipe() {
+        document.querySelectorAll('.secao').forEach(sec => sec.classList.remove('ativa'));
+        document.getElementById('secao-equipe').classList.add('ativa');
+        document.getElementById('btn-voltar-container').style.display = 'block';
+        renderizarEquipe();
+    }
+    
     function voltarParaHome() {
         document.querySelectorAll('.secao').forEach(sec => sec.classList.remove('ativa'));
         document.getElementById('secao-principal').classList.add('ativa');
@@ -108,7 +130,7 @@
         const categorias = {};
         artistas.forEach(artista => {
             let cat = artista.categoria;
-            if (cat.includes('IN MEMORIAN')) cat = 'ARTES CÊNICAS'; // agrupar com a categoria principal
+            if (cat.includes('IN MEMORIAN')) cat = 'ARTES CÊNICAS';
             if (!categorias[cat]) categorias[cat] = [];
             categorias[cat].push(artista);
         });
@@ -177,6 +199,41 @@
         html += '</div>';
         
         document.getElementById('lista-nomes-container').innerHTML = html;
+    }
+    
+    // Função para renderizar a equipe (com placeholders)
+    function renderizarEquipe() {
+        // Lista temporária da equipe (você substituirá pelos dados reais)
+        const equipe = [
+            { nome: "Nome do Coordenador", funcao: "Coordenação Geral", descricao: "Descrição do trabalho e contribuição.", icone: "🎯" },
+            { nome: "Nome do Pesquisador 1", funcao: "Pesquisa e Curadoria", descricao: "Responsável pela seleção e organização dos artistas.", icone: "📚" },
+            { nome: "Nome do Pesquisador 2", funcao: "Pesquisa e Curadoria", descricao: "Responsável pela seleção e organização dos artistas.", icone: "🔍" },
+            { nome: "Nome do Designer", funcao: "Design Gráfico", descricao: "Criação visual do catálogo e materiais.", icone: "🎨" },
+            { nome: "Nome do Desenvolvedor", funcao: "Diagramação e desenvolvimento Web", descricao: "Diagramação do catálogo, implementação técnica do site e manutenção.", icone: "💻" },
+            { nome: "Nome do Produtor", funcao: "Produção Executiva", descricao: "Gestão do projeto e parcerias.", icone: "🎬" },
+            { nome: "Nome do Entrevistador", funcao: "Entrevistas", descricao: "Condução das entrevistas com os artistas.", icone: "🎙️" },
+            { nome: "Nome do Fotógrafo", funcao: "Registro Fotográfico", descricao: "Registro das imagens e making of.", icone: "📸" }
+        ];
+        
+        let html = '<div class="equipe-grid">';
+        
+        equipe.forEach(membro => {
+            html += `
+                <div class="membro-card">
+                    <div class="membro-foto placeholder">
+                        ${membro.icone}
+                    </div>
+                    <div class="membro-info">
+                        <div class="membro-nome">${membro.nome}</div>
+                        <div class="membro-funcao">${membro.funcao}</div>
+                        <div class="membro-descricao">${membro.descricao}</div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        html += '</div>';
+        document.getElementById('equipe-container').innerHTML = html;
     }
     
     // Abrir accordion específico via URL (para navegação direta)
