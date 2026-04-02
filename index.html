@@ -2,39 +2,208 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrevistas - Artistas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Catálogo de Entrevistas - Artistas</title>
+    <link rel="stylesheet" href="estilos.css">
     <style>
+        /* Ajuste adicional para o header fixo */
         body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            padding-top: 0;
         }
-        h1 { color: #333; }
-        .artista {
-            display: block;
-            padding: 12px 16px;
-            margin: 8px 0;
-            background: #f0f0f0;
-            border-radius: 8px;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
-        .artista:hover {
-            background: #007bff;
-            color: white;
+        .header-placeholder {
+            height: auto;
         }
     </style>
 </head>
 <body>
-    <h1>🎤 Entrevistas com Artistas</h1>
-    <p>Clique no nome do artista para acessar sua página exclusiva.</p>
 
-    <!-- Lista de artistas - você vai expandir aqui -->
-    <a href="artistas/artista-1.html" class="artista">🎵 Artista 1</a>
-    <a href="artistas/artista-2.html" class="artista">🎵 Artista 2</a>
-    <a href="artistas/artista-3.html" class="artista">🎵 Artista 3</a>
+<!-- Header fixo com imagem -->
+<div class="header-fixo">
+    <img src="imagens/cabecalho.png" alt="Cabeçalho" class="cabecalho-img" id="cabecalho-img">
+    <!-- Se for WebP, mude a extensão acima -->
+</div>
+
+<!-- Espaçador para compensar o header fixo (será ajustado via JS) -->
+<div class="header-placeholder"></div>
+
+<main>
+    <!-- Botão voltar (aparece em subpáginas, será controlado por JS) -->
+    <div id="btn-voltar-container" style="display: none;">
+        <button class="btn-voltar" onclick="voltarParaHome()">← Voltar ao início</button>
+    </div>
+
+    <!-- SEÇÃO 1: Cards principais -->
+    <div id="secao-principal" class="secao ativa">
+        <div class="container-cards">
+            <div class="card-principal" onclick="mostrarCategorias()">
+                <div class="card-imagem" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-size: 64px;">🎨</span>
+                </div>
+                <div class="card-conteudo">
+                    <h2>Por Categoria</h2>
+                    <p>Explore os artistas organizados por sua área de atuação</p>
+                </div>
+            </div>
+            <div class="card-principal" onclick="mostrarNomes()">
+                <div class="card-imagem" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-size: 64px;">📝</span>
+                </div>
+                <div class="card-conteudo">
+                    <h2>Por Nome</h2>
+                    <p>Lista completa em ordem alfabética</p>
+                </div>
+            </div>
+        </div>
+        <div class="texto-busca">
+            ✨ Procure artistas por categoria ou nome ✨
+        </div>
+    </div>
+
+    <!-- SEÇÃO 2: Página de Categorias (Accordion) -->
+    <div id="secao-categorias" class="secao">
+        <div id="accordion-container"></div>
+    </div>
+
+    <!-- SEÇÃO 3: Página de Nomes (Lista alfabética) -->
+    <div id="secao-nomes" class="secao">
+        <div id="lista-nomes-container"></div>
+    </div>
+</main>
+
+<script src="dados.js"></script>
+<script>
+    // Ajustar altura do placeholder para compensar o header fixo
+    function ajustarHeaderPlaceholder() {
+        const headerAltura = document.querySelector('.header-fixo').offsetHeight;
+        document.querySelector('.header-placeholder').style.height = headerAltura + 'px';
+    }
+    
+    window.addEventListener('load', ajustarHeaderPlaceholder);
+    window.addEventListener('resize', ajustarHeaderPlaceholder);
+
+    // Funções de navegação
+    function mostrarCategorias() {
+        document.querySelectorAll('.secao').forEach(sec => sec.classList.remove('ativa'));
+        document.getElementById('secao-categorias').classList.add('ativa');
+        document.getElementById('btn-voltar-container').style.display = 'block';
+        renderizarAccordion();
+    }
+    
+    function mostrarNomes() {
+        document.querySelectorAll('.secao').forEach(sec => sec.classList.remove('ativa'));
+        document.getElementById('secao-nomes').classList.add('ativa');
+        document.getElementById('btn-voltar-container').style.display = 'block';
+        renderizarListaNomes();
+    }
+    
+    function voltarParaHome() {
+        document.querySelectorAll('.secao').forEach(sec => sec.classList.remove('ativa'));
+        document.getElementById('secao-principal').classList.add('ativa');
+        document.getElementById('btn-voltar-container').style.display = 'none';
+    }
+    
+    // Renderizar Accordion (sanfonado) por categoria
+    function renderizarAccordion() {
+        // Agrupar artistas por categoria
+        const categorias = {};
+        artistas.forEach(artista => {
+            let cat = artista.categoria;
+            if (cat.includes('IN MEMORIAN')) cat = 'ARTES CÊNICAS'; // agrupar com a categoria principal
+            if (!categorias[cat]) categorias[cat] = [];
+            categorias[cat].push(artista);
+        });
+        
+        // Ordem alfabética das categorias
+        const categoriasOrdenadas = Object.keys(categorias).sort();
+        
+        let html = '';
+        categoriasOrdenadas.forEach(categoria => {
+            const cor = coresCategorias[categoria] || '#95a5a6';
+            const artistasOrdenados = categorias[categoria].sort((a,b) => a.nome.localeCompare(b.nome));
+            
+            let listaArtistas = '';
+            artistasOrdenados.forEach(artista => {
+                const slug = slugify(artista.nome);
+                listaArtistas += `
+                    <a href="artistas/${slug}.html" class="link-artista" style="border-left-color: ${cor}">
+                        🎙️ ${artista.nome}
+                    </a>
+                `;
+            });
+            
+            html += `
+                <div class="accordion-item">
+                    <button class="accordion-header" style="background: ${cor}" onclick="toggleAccordion(this)">
+                        ${categoria}
+                    </button>
+                    <div class="accordion-content">
+                        <div class="lista-artistas-accordion">
+                            ${listaArtistas}
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        document.getElementById('accordion-container').innerHTML = html;
+    }
+    
+    function toggleAccordion(btn) {
+        const item = btn.closest('.accordion-item');
+        item.classList.toggle('active');
+    }
+    
+    // Renderizar lista completa de nomes com tags coloridas
+    function renderizarListaNomes() {
+        const artistasOrdenados = [...artistas].sort((a,b) => a.nome.localeCompare(b.nome));
+        
+        let html = '<div class="lista-todos-artistas">';
+        artistasOrdenados.forEach(artista => {
+            let categoriaBase = artista.categoria;
+            const isMemorian = categoriaBase.includes('IN MEMORIAN');
+            if (isMemorian) categoriaBase = 'ARTES CÊNICAS';
+            
+            const cor = coresCategorias[categoriaBase] || '#95a5a6';
+            const slug = slugify(artista.nome);
+            const nomeExibido = isMemorian ? artista.nome + ' †' : artista.nome;
+            
+            html += `
+                <a href="artistas/${slug}.html" class="item-artista">
+                    <span class="nome-artista">${nomeExibido}</span>
+                    <span class="tag-categoria" style="background: ${cor}">${categoriaBase}</span>
+                </a>
+            `;
+        });
+        html += '</div>';
+        
+        document.getElementById('lista-nomes-container').innerHTML = html;
+    }
+    
+    // Abrir accordion específico via URL (para navegação direta)
+    function abrirCategoriaNaURL() {
+        const params = new URLSearchParams(window.location.search);
+        const categoria = params.get('categoria');
+        if (categoria) {
+            mostrarCategorias();
+            setTimeout(() => {
+                const items = document.querySelectorAll('.accordion-item');
+                for (let item of items) {
+                    const header = item.querySelector('.accordion-header');
+                    if (header.textContent === decodeURIComponent(categoria)) {
+                        item.classList.add('active');
+                        header.scrollIntoView({ behavior: 'smooth' });
+                        break;
+                    }
+                }
+            }, 100);
+        }
+    }
+    
+    // Executar ao carregar
+    window.addEventListener('load', () => {
+        ajustarHeaderPlaceholder();
+        abrirCategoriaNaURL();
+    });
+</script>
 </body>
 </html>
