@@ -284,3 +284,78 @@ main {
 .secao.ativa {
     display: block;
 }
+
+/* Estilos para a página da Equipe */
+.equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.membro-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    text-align: center;
+}
+
+.membro-card:hover {
+    transform: translateY(-5px);
+}
+
+.membro-foto {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    color: white;
+}
+
+.membro-foto.placeholder {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+.membro-info {
+    padding: 20px;
+}
+
+.membro-nome {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.membro-funcao {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #007bff;
+    color: white;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+}
+
+.membro-descricao {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .equipe-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .membro-foto {
+        height: 200px;
+        font-size: 60px;
+    }
+}
