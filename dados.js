@@ -4,6 +4,7 @@ const artistas = [
     { nome: "Ana Quintas", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
     { nome: "Andy do Futuro", categoria: "ARTES CÊNICAS" },
     { nome: "Ànna Moura", categoria: "MÚSICA" },
+    { nome: "Ava Scherdien", categoria: "ARTES CÊNICAS" },
     { nome: "Cinthia Santos", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
     { nome: "Débora Zimmer", categoria: "MÚSICA" },
     { nome: "Deni Moreira", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
@@ -29,6 +30,7 @@ const artistas = [
     { nome: "Letícia Fialho", categoria: "MÚSICA" },
     { nome: "Lu Matias", categoria: "DANÇA" },
     { nome: "Lui L'Abbate", categoria: "ARTES CÊNICAS" },
+    { nome: "Luiza Garonce", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
     { nome: "Mar Nobrega", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
     { nome: "Marcia Regina", categoria: "DANÇA" },
     { nome: "Maria Eugênia Matricardi", categoria: "ARTES PLÁSTICAS" },
@@ -56,14 +58,13 @@ const artistas = [
 
 // Cores distintas para cada categoria
 const coresCategorias = {
-    "ARTES PLÁSTICAS": "#9b59b6",      // Roxo
-    "PRODUÇÃO CULTURAL E TÉCNICA": "#3498db", // Azul
-    "ARTES CÊNICAS": "#e74c3c",        // Vermelho
-    "MÚSICA": "#2ecc71",               // Verde
-    "DANÇA": "#f39c12"                 // Laranja
+    "ARTES PLÁSTICAS": "#9b59b6",
+    "PRODUÇÃO CULTURAL E TÉCNICA": "#3498db",
+    "ARTES CÊNICAS": "#e74c3c",
+    "MÚSICA": "#2ecc71",
+    "DANÇA": "#f39c12"
 };
 
-// Função para normalizar nome (criar slug para links)
 function slugify(nome) {
     return nome.toLowerCase()
         .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
