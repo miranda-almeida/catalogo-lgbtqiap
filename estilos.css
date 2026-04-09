@@ -378,7 +378,7 @@ main {
     color: #333;
     max-height: 500px;
     overflow-y: auto;
-    border-left: 4px solid #007bff;
+    border-left: 4px solid #e000a5;
 }
 
 /* Scroll personalizado para a transcrição */
@@ -409,7 +409,7 @@ main {
 }
 
 .transcricao strong {
-    color: #007bff;
+    color: #e000a5;
     font-weight: 600;
 }
 
