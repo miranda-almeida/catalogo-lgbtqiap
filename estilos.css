@@ -401,7 +401,7 @@ main {
 }
 
 .transcricao p {
-    margin-bottom: 16px;
+    margin-bottom: 25px;
 }
 
 .transcricao p:last-child {
@@ -559,4 +559,19 @@ audio {
     .membro-foto {
         height: 250px;
     }
+}
+
+/* Forçar estilo dos botões de redes sociais */
+.pagina-artista .redes-sociais a {
+    padding: 10px 20px;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s;
+    display: inline-block;
+}
+
+.pagina-artista .redes-sociais a:hover {
+    background: #007bff;
 }
