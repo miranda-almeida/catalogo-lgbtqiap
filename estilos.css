@@ -571,13 +571,13 @@ audio {
 /* Ajustes por tamanho de tela para CABEÇALHO */
 @media (min-width: 1025px) {
     .cabecalho-img {
-        max-height: 200px;  /* Desktop: até 200px de altura */
+        max-height: 100px;  /* Desktop: até 100px de altura */
     }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
     .cabecalho-img {
-        max-height: 170px;  /* Tablet: até 170px */
+        max-height: 60px;  /* Tablet: até 60px */
     }
 }
 
