@@ -10,7 +10,7 @@ const artistas = [
     { nome: "Deni Moreira", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
     { nome: "Denis Camargo", categoria: "ARTES CÊNICAS" },
     { nome: "Elisa Carneiro", categoria: "ARTES CÊNICAS" },
-    { nome: "Ellen Oléria", categoria: "MÚSICA" },
+    { nome: "Conceitinho", categoria: "MÚSICA" },
     { nome: "Elmo Férrer", categoria: "ARTES CÊNICAS" },
     { nome: "Emanuel Lavor", categoria: "ARTES CÊNICAS" },
     { nome: "Fernanda Alpino", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
