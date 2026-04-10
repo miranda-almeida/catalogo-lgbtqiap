@@ -21,45 +21,20 @@ body {
     background: white;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    padding: 15px 0;
-}
-
-/* Container para centralizar a logo */
-.header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    text-align: center;
-}
-
-.cabecalho-img {
-    max-width: 100%;
-    height: auto;
-    display: inline-block;  /* Permite centralização com text-align */
-    max-height: 200px;
-}
-
-/* Versão alternativa usando flexbox */
-/*
-.header-fixo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: white;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 20px;
+    padding: 15px 20px;
 }
 
+/* Logo responsiva */
 .cabecalho-img {
     max-width: 100%;
+    width: auto;
     height: auto;
+    display: block;
+    max-height: 150px;  /* Altura padrão para mobile */
 }
-*/
 
 /* Conteúdo principal (compensa o header fixo) */
 main {
@@ -596,26 +571,25 @@ audio {
 /* Ajustes por tamanho de tela para CABEÇALHO */
 @media (min-width: 1025px) {
     .cabecalho-img {
-        max-height: 300px;  /* Desktop: até 300px de altura */
+        max-height: 200px;  /* Desktop: até 200px de altura */
     }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
     .cabecalho-img {
-        max-height: 220px;  /* Tablet: até 220px */
+        max-height: 170px;  /* Tablet: até 170px */
     }
 }
 
 @media (max-width: 768px) {
-    .cabecalho-img {
-        max-height: 150px;  /* Mobile: até 150px */
+    .header-fixo {
+        padding: 10px 15px;
     }
     
-    .header-fixo {
-        padding: 10px 0;
+    .cabecalho-img {
+        max-height: 120px;  /* Mobile: até 120px */
     }
 }
-
 
 /* Forçar estilo dos botões de redes sociais */
 .pagina-artista .redes-sociais a {
