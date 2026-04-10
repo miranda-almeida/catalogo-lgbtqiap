@@ -21,13 +21,44 @@ body {
     background: white;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 10px 0;  /* Adiciona espaçamento interno */
+}
+
+/* Container para centralizar a logo */
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
 }
 
 .cabecalho-img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
-    display: block;
+    display: inline-block;  /* Permite centralização com text-align */
 }
+
+/* Versão alternativa usando flexbox */
+/*
+.header-fixo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.cabecalho-img {
+    max-width: 100%;
+    height: auto;
+}
+*/
 
 /* Conteúdo principal (compensa o header fixo) */
 main {
