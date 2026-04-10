@@ -21,7 +21,7 @@ body {
     background: white;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    padding: 10px 0;  /* Adiciona espaçamento interno */
+    padding: 15px 0;
 }
 
 /* Container para centralizar a logo */
@@ -36,6 +36,7 @@ body {
     max-width: 100%;
     height: auto;
     display: inline-block;  /* Permite centralização com text-align */
+    max-height: 200px;
 }
 
 /* Versão alternativa usando flexbox */
@@ -591,6 +592,30 @@ audio {
         height: 250px;
     }
 }
+
+/* Ajustes por tamanho de tela para CABEÇALHO */
+@media (min-width: 1025px) {
+    .cabecalho-img {
+        max-height: 300px;  /* Desktop: até 300px de altura */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .cabecalho-img {
+        max-height: 220px;  /* Tablet: até 220px */
+    }
+}
+
+@media (max-width: 768px) {
+    .cabecalho-img {
+        max-height: 150px;  /* Mobile: até 150px */
+    }
+    
+    .header-fixo {
+        padding: 10px 0;
+    }
+}
+
 
 /* Forçar estilo dos botões de redes sociais */
 .pagina-artista .redes-sociais a {
