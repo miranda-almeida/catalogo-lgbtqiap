@@ -49,7 +49,7 @@ const artistas = [
     { nome: "Renato Fernandes", categoria: "DANÇA" },
     { nome: "Romulo Barros", categoria: "ARTES PLÁSTICAS" },
     { nome: "Ruth Venceremos", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
-    { nome: "Similião Aurélio", categoria: "ARTES PLÁSTICAS" },
+    { nome: "Sintra Rodrigues", categoria: "DANÇA" },
     { nome: "Soulivier", categoria: "ARTES PLÁSTICAS" },
     { nome: "Tatiana Nascimento", categoria: "MÚSICA" },
     { nome: "Tauana Barros", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
