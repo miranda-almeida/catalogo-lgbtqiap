@@ -13,6 +13,7 @@ const artistas = [
     { nome: "Conceitinho", categoria: "MÚSICA" },
     { nome: "Elmo Férrer", categoria: "ARTES CÊNICAS" },
     { nome: "Emanuel Lavor", categoria: "ARTES CÊNICAS" },
+    { nome: "Eva Moura", categoria: "MÚSICA" },
     { nome: "Fernanda Alpino", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
     { nome: "Fernanda Jacob", categoria: "MÚSICA" },
     { nome: "Flor Furação", categoria: "MÚSICA" },
