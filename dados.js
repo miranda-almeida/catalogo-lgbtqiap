@@ -38,7 +38,7 @@ const artistas = [
     { nome: "Maria Eugênia Matricardi", categoria: "ARTES PLÁSTICAS" },
     { nome: "Maria Léo Araruna", categoria: "ARTES CÊNICAS" },
     { nome: "Maria Victória Carballar", categoria: "MÚSICA" },
-    { nome: "Mikael Veloso", categoria: "DANÇA" },
+    { nome: "Mickael Veloso", categoria: "DANÇA" },
     { nome: "Nine Ribeiro", categoria: "ARTES CÊNICAS" },
     { nome: "Pipa Sousa", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
     { nome: "Quartinho", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
