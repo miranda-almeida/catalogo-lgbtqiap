@@ -33,7 +33,7 @@ const artistas = [
     { nome: "Lu Matias", categoria: "DANÇA" },
     { nome: "Lui L'Abbate", categoria: "ARTES CÊNICAS" },
     { nome: "Luiza Garonce", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
-    { nome: "Mar Nobrega", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
+    { nome: "Mar Nóbrega", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
     { nome: "Marcia Regina", categoria: "DANÇA" },
     { nome: "Maria Eugênia Matricardi", categoria: "ARTES PLÁSTICAS" },
     { nome: "Maria Léo Araruna", categoria: "ARTES CÊNICAS" },
