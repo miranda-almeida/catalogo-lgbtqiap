@@ -24,7 +24,7 @@ const artistas = [
     { nome: "João Ricken", categoria: "ARTES CÊNICAS" },
     { nome: "Jonathan Andrade", categoria: "ARTES CÊNICAS" },
     { nome: "Jordana Mascarenhas", categoria: "ARTES CÊNICAS" },
-    { nome: "Josias Silva (Vinicius Ávlis, Damares Silva e Rafael Salmona)", categoria: "ARTES CÊNICAS (IN MEMORIAN)" },
+    { nome: "Josias Silva", categoria: "ARTES CÊNICAS (IN MEMORIAN)" },
     { nome: "Kael Studart", categoria: "ARTES CÊNICAS" },
     { nome: "Kaled Hassan", categoria: "DANÇA" },
     { nome: "Kika Ribeiro", categoria: "MÚSICA" },
