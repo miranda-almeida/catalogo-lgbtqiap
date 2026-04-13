@@ -20,6 +20,7 @@ const artistas = [
     { nome: "Gustavo Silvamaral", categoria: "ARTES PLÁSTICAS" },
     { nome: "Iago Gabriel", categoria: "DANÇA" },
     { nome: "Ísis Zavlyn", categoria: "MÚSICA" },
+    { nome: "Jesso Alves", categoria: "ARTES PLÁSTICAS" },
     { nome: "João Ricken", categoria: "ARTES CÊNICAS" },
     { nome: "Jonathan Andrade", categoria: "ARTES CÊNICAS" },
     { nome: "Jordana Mascarenhas", categoria: "ARTES CÊNICAS" },
