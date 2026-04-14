@@ -15,9 +15,7 @@ const artistas = [
     { nome: "Emanuel Lavor", categoria: "ARTES CÊNICAS" },
     { nome: "Eva Moura", categoria: "MÚSICA" },
     { nome: "Fernanda Alpino", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
-    { nome: "Fernanda Jacob", categoria: "MÚSICA" },
     { nome: "Flor Furação", categoria: "MÚSICA" },
-    { nome: "Gustavo Silvamaral", categoria: "ARTES PLÁSTICAS" },
     { nome: "Iago Gabriel", categoria: "DANÇA" },
     { nome: "Ísis Zavlyn", categoria: "MÚSICA" },
     { nome: "Jesso Alves", categoria: "ARTES PLÁSTICAS" },
@@ -40,11 +38,9 @@ const artistas = [
     { nome: "Maria Victória Carballar", categoria: "MÚSICA" },
     { nome: "Mickael Veloso", categoria: "DANÇA" },
     { nome: "Nine Ribeiro", categoria: "ARTES CÊNICAS" },
-    { nome: "Pipa Sousa", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
     { nome: "Quartinho", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
     { nome: "Rafael da Escóssia", categoria: "ARTES PLÁSTICAS" },
     { nome: "Rafael Reis", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
-    { nome: "Rainer Cadete", categoria: "ARTES CÊNICAS" },
     { nome: "Raio de Sol", categoria: "DANÇA" },
     { nome: "Renato Fernandes", categoria: "DANÇA" },
     { nome: "Romulo Barros", categoria: "ARTES PLÁSTICAS" },
@@ -55,7 +51,6 @@ const artistas = [
     { nome: "Tauana Barros", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" },
     { nome: "Tita Maravilha", categoria: "ARTES CÊNICAS" },
     { nome: "Úrsula Zion", categoria: "MÚSICA" },
-    { nome: "Zizi Antunes", categoria: "PRODUÇÃO CULTURAL E TÉCNICA" }
 ];
 
 // Cores distintas para cada categoria
