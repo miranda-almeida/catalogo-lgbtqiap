@@ -605,3 +605,106 @@ audio {
 .pagina-artista .redes-sociais a:hover {
     background: #007bff;
 }
+
+/* ============================================ */
+/* RODAPÉ FIXO COM RÉGUA DE LOGOS */
+/* ============================================ */
+
+.rodape {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+.rodape-container {
+    max-width: 100%;
+    overflow-x: auto;  /* Permite scroll lateral */
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;  /* Scroll suave no iOS */
+}
+
+/* Esconde a barra de scroll no desktop (opcional - mais bonito) */
+.rodape-container::-webkit-scrollbar {
+    height: 4px;
+}
+
+.rodape-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.rodape-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.rodape-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+.rodape-imagem {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    max-width: none;  /* Permite que a imagem ultrapasse o container */
+}
+
+/* Desktop: imagem centralizada sem scroll */
+@media (min-width: 769px) {
+    .rodape-container {
+        overflow-x: visible;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .rodape-imagem {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Mobile: scroll lateral ativado */
+@media (max-width: 768px) {
+    .rodape {
+        padding: 8px 0;
+    }
+    
+    .rodape-imagem {
+        width: auto;
+        height: 60px;  /* Altura reduzida no mobile */
+        min-width: 1080px;  /* Largura original forçada para scroll */
+    }
+}
+
+/* Tablet: compromisso entre scroll e visualização */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .rodape-imagem {
+        height: 70px;
+        width: auto;
+    }
+}
+
+/* Desktop: tamanho confortável */
+@media (min-width: 1025px) {
+    .rodape-imagem {
+        height: 80px;
+        width: auto;
+    }
+}
+
+/* Compensar o espaço do rodapé no conteúdo principal */
+body {
+    padding-bottom: 100px;  /* Espaço para não esconder conteúdo atrás do rodapé */
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 80px;  /* Menos espaço no mobile pois o rodapé é menor */
+    }
+}
