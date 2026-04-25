@@ -180,7 +180,7 @@ function renderizarListaNomes() {
         
         html += `
             <a href="artistas/${slug}.html" class="item-artista" ${isMemorian ? 'style="background: #fff3f3; border-left: 4px solid #c0392b;"' : ''}>
-                <span class="nome-artista">${isMemorian ? '🕊️ ' : '🎙️ '} ${nomeExibido}</span>
+                <span class="nome-artista">${isMemorian ? : '🎙️ '} ${nomeExibido}</span>
                 <span class="tag-categoria" style="background: ${cor}">${categoriaBase} ${isMemorian ? '• IN MEMORIAN' : ''}</span>
             </a>
         `;
