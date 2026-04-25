@@ -56,7 +56,7 @@ main {
 #btn-voltar-container {
     position: fixed;
     bottom: 30px;
-    right: 30px;
+    left: 30px;
     z-index: 999;
 }
 
@@ -326,16 +326,18 @@ main {
 
 .membro-foto {
     width: 100%;
-    aspect-ratio: 1 / 1; /* Mantém proporção quadrada 1:1 */
+    aspect-ratio: 1 / 1;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     overflow: hidden;
     position: relative;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .membro-foto img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Garante que a imagem cubra todo o espaço sem distorcer */
+    object-fit: cover;
     display: block;
     position: absolute;
     top: 0;
@@ -359,7 +361,7 @@ main {
 }
 
 .membro-nome {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: bold;
     margin-bottom: 8px;
     color: #333;
@@ -367,11 +369,11 @@ main {
 
 .membro-funcao {
     display: inline-block;
-    padding: 4px 12px;
-    background: #007bff;
-    color: white;
+    padding: 6px 14px;
+    background: #e0e0e0;
+    color: #333;
     border-radius: 20px;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     margin-bottom: 12px;
     align-self: center;
 }
@@ -525,7 +527,7 @@ audio {
     /* Botão voltar flutuante no mobile */
     #btn-voltar-container {
         bottom: 20px;
-        right: 20px;
+        left: 20px;
     }
     
     .btn-voltar {
@@ -570,8 +572,10 @@ audio {
     
     /* Grid da equipe no mobile - 1 coluna */
     .equipe-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Antigo: 280px */
+        gap: 30px;
+        padding: 20px 0;
     }
 }
 
