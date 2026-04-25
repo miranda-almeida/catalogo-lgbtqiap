@@ -61,6 +61,10 @@ main {
 }
 
 .btn-voltar {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 999;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -402,7 +406,7 @@ main {
 .pagina-artista {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 80px 20px 20px 20px;
 }
 
 /* Estilos para a transcrição da entrevista */
@@ -531,6 +535,8 @@ audio {
     }
     
     .btn-voltar {
+        bottom: 20px;
+        left: 20px;
         padding: 10px 20px;
         font-size: 14px;
     }
