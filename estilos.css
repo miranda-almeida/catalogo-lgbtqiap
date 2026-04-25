@@ -307,8 +307,8 @@ main {
 /* Estilos para a página da Equipe - Grid responsivo com fotos quadradas */
 .equipe-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 35px;
     padding: 20px 0;
 }
 
@@ -321,6 +321,7 @@ main {
     text-align: center;
     display: flex;
     flex-direction: column;
+    min-width: 280px;
 }
 
 .membro-card:hover {
@@ -334,8 +335,6 @@ main {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     overflow: hidden;
     position: relative;
-    max-width: 600px;
-    margin: 0 auto;
 }
 
 .membro-foto img {
@@ -365,10 +364,11 @@ main {
 }
 
 .membro-nome {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     color: #333;
+    word-wrap: break-word;
 }
 
 .membro-funcao {
@@ -377,9 +377,12 @@ main {
     background: #e0e0e0;
     color: #333;
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     margin-bottom: 12px;
     align-self: center;
+    text-align: center;
+    word-wrap: break-word;
+    max-width: 90%;
 }
 
 .membro-descricao {
